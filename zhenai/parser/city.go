@@ -15,10 +15,13 @@ func ParseCity(contents []byte) engine.ParseResult {
 	result := engine.ParseResult{}
 	matches := re.FindAllSubmatch(contents, -1)
 	for _, v := range matches {
-		result.Items = append(result.Items, "User "+string(v[2]))
+		name := string(v[2])
+		result.Items = append(result.Items, "User "+name)
 		result.Requests = append(result.Requests, engine.Request{
-			Url:        cityPrefix + string(v[1]),
-			ParserFunc: engine.NilParser,
+			Url: cityPrefix + string(v[1]),
+			ParserFunc: func(contents []byte) engine.ParseResult {
+				return ParseProfile(contents, name)
+			},
 		})
 	}
 	return result

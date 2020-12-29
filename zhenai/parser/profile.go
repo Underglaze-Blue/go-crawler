@@ -20,24 +20,25 @@ var xinzuoRe = regexp.MustCompile(`<td><span class="label">星座：</span><span
 var houseRe = regexp.MustCompile(`<td><span class="label">住房条件：</span><span field="">([^<]+)</span></td>`)
 var carRe = regexp.MustCompile(`<td><span class="label">是否购车：</span><span field="">([^<]+)</span></td>`)
 
-func ParseProfile(contents []byte) engine.ParseResult {
+func ParseProfile(contents []byte, name string) engine.ParseResult {
 	profile := model.Profile{}
 
 	age, err := strconv.Atoi(extractString(contents, ageRe))
-	if err != nil {
+	if err == nil {
 		profile.Age = age
 	}
 
 	height, err := strconv.Atoi(extractString(contents, heightRe))
-	if err != nil {
+	if err == nil {
 		profile.Height = height
 	}
 
 	weight, err := strconv.Atoi(extractString(contents, weightRe))
-	if err != nil {
+	if err == nil {
 		profile.Weight = weight
 	}
 
+	profile.Name = name
 	profile.Marriage = extractString(contents, marriageRe)
 	profile.Car = extractString(contents, carRe)
 	profile.Education = extractString(contents, educationRe)
@@ -57,7 +58,7 @@ func ParseProfile(contents []byte) engine.ParseResult {
 func extractString(contents []byte, re *regexp.Regexp) string {
 	match := re.FindSubmatch(contents)
 
-	if len(match) > 2 {
+	if len(match) >= 2 {
 		return string(match[1])
 	}
 	return ""
