@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="894488b6-90b8-4548-b441-57436b40d12b" name="Default Changelist" comment="" />
+    <list default="true" id="894488b6-90b8-4548-b441-57436b40d12b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/zhenai/parser/city.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zhenai/parser/citylist.go" beforeDir="false" afterPath="$PROJECT_DIR$/zhenai/parser/citylist.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +51,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
-  <component name="RunManager" selected="Go Test.TestParseCityList in crawler/zhenai/parser">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="crawler" />
       <working_directory value="$PROJECT_DIR$" />
@@ -77,8 +81,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestParseCityList in crawler/zhenai/parser" />
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Test.TestParseCityList in crawler/zhenai/parser" />
         <item itemvalue="Go Build.go build regexp.go" />
       </list>
     </recent_temporary>
@@ -97,6 +101,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
