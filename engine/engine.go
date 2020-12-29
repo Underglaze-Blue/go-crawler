@@ -19,7 +19,6 @@ func Run(seeds ...Request) {
 		body, err := fetcher.Fetch(r.Url)
 		if err != nil {
 			logger.Info("", zap.String("Fetcher: error fetching url", r.Url), zap.Error(err))
-			//log.Printf("Fetcher: error fetching url %s: %v", r.Url, err)
 			continue
 		}
 
@@ -28,7 +27,6 @@ func Run(seeds ...Request) {
 
 		for _, item := range parseResult.Items {
 			logger.Info("Got item", zap.Any("item", item))
-			//log.Printf("Got item %v", item)
 		}
 	}
 }
