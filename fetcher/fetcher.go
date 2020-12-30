@@ -4,9 +4,13 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
+var timeTick = time.Tick(10 * time.Millisecond)
+
 func Fetch(url string) ([]byte, error) {
+	<-timeTick
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
