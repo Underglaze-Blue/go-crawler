@@ -30,16 +30,25 @@ func (e *ConcurrentEngine) Run(seeds ...Request) {
 	}
 
 	for _, r := range seeds {
+		if isDuplicate(r.Url) {
+			log.Printf("Repeated links： %s", r.Url)
+			continue
+		}
 		e.Scheduler.Submit(r)
 	}
-
+	itemCount := 0
 	for {
 		result := <-out
 		for _, item := range result.Items {
-			log.Printf("Got item: %v", item)
+			log.Printf("Got item #%d: %v", itemCount, item)
+			itemCount++
 		}
 
 		for _, r := range result.Requests {
+			if isDuplicate(r.Url) {
+				log.Printf("Repeated links： %s", r.Url)
+				continue
+			}
 			e.Scheduler.Submit(r)
 		}
 	}
@@ -57,4 +66,14 @@ func createWorker(in chan Request, out chan ParseResult, ready ReadNotifier) {
 			out <- result
 		}
 	}()
+}
+
+var duplicate = make(map[string]bool)
+
+func isDuplicate(url string) bool {
+	if duplicate[url] {
+		return true
+	}
+	duplicate[url] = true
+	return false
 }

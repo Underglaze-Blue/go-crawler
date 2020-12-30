@@ -32,7 +32,6 @@ func (SimpleEngine) Run(seeds ...Request) {
 
 func worker(r Request) (ParseResult, error) {
 	logger, _ := zap.NewProduction()
-	logger.Info("Fetching", zap.String("url", r.Url))
 	body, err := fetcher.Fetch(r.Url)
 	if err != nil {
 		logger.Info("", zap.String("Fetcher: error fetching url", r.Url), zap.Error(err))
