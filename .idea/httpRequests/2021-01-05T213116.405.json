@@ -1,0 +1,4 @@
+{
+  "error": "Incorrect HTTP method for uri [/imooc/1] and method [DELETE], allowed: [POST]",
+  "status": 405
+}

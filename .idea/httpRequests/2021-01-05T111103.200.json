@@ -1,0 +1,39 @@
+{
+  "took": 364,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "imooc",
+        "_type": "cource",
+        "_id": "1",
+        "_score": 1.0,
+        "_source": {
+          "name": "golang",
+          "instructor": "himawari"
+        }
+      },
+      {
+        "_index": "imooc",
+        "_type": "cource",
+        "_id": "2",
+        "_score": 1.0,
+        "_source": {
+          "name": "interview",
+          "instructor": "himawari"
+        }
+      }
+    ]
+  }
+}

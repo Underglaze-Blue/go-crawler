@@ -9,7 +9,7 @@ const urlPrefix = "http://localhost:8080/mock/www.zhenai.com/zhenghun/"
 
 const cityListRe = `<a href="` + urlPrefix + `([0-9a-zA-Z]+)"[^>]*>([^<]*)</a>`
 
-func ParseCityList(contents []byte) engine.ParseResult {
+func ParseCityList(contents []byte, _ string) engine.ParseResult {
 	re := regexp.MustCompile(cityListRe)
 
 	result := engine.ParseResult{}

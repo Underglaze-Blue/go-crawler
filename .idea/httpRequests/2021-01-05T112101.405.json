@@ -1,0 +1,4 @@
+{
+  "error": "Incorrect HTTP method for uri [/imooc/_mappping] and method [GET], allowed: [POST]",
+  "status": 405
+}

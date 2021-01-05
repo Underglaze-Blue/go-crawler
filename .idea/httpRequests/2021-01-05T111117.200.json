@@ -1,0 +1,29 @@
+{
+  "took": 85,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": 0.6931471,
+    "hits": [
+      {
+        "_index": "imooc",
+        "_type": "cource",
+        "_id": "1",
+        "_score": 0.6931471,
+        "_source": {
+          "name": "golang",
+          "instructor": "himawari"
+        }
+      }
+    ]
+  }
+}

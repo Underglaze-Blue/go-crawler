@@ -9,18 +9,15 @@ var profileRe = regexp.MustCompile(`<a href="(http://localhost:8080/mock/album.z
 
 var cityUrlRe = regexp.MustCompile(`href="(http://localhost:8080/mock/www.zhenai.com/zhenghun/baotou/[^"]+)"`)
 
-func ParseCity(contents []byte) engine.ParseResult {
+func ParseCity(contents []byte, _ string) engine.ParseResult {
 
 	result := engine.ParseResult{}
 	matches := profileRe.FindAllSubmatch(contents, -1)
 	for _, v := range matches {
-		name := string(v[2])
 		//result.Items = append(result.Items, "User "+name)
 		result.Requests = append(result.Requests, engine.Request{
-			Url: string(v[1]),
-			ParserFunc: func(contents []byte) engine.ParseResult {
-				return ParseProfile(contents, name)
-			},
+			Url:        string(v[1]),
+			ParserFunc: ProfileParse(string(v[2])),
 		})
 	}
 
